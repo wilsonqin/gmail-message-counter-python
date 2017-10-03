@@ -5,7 +5,7 @@ import httplib2
 from apiclient.discovery import build
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.file import Storage
-from oauth2client.tools import run
+from oauth2client.tools import run_flow
 
 CLIENT_SECRET_FILE = 'client_secret_<YOUR-UNIQUE-ID-GOES-HERE>.apps.googleusercontent.com.json'
 STORAGE = Storage('gmail.storage')
@@ -20,7 +20,7 @@ def build_service():
   http = httplib2.Http()
   credentials = STORAGE.get()
   if credentials is None or credentials.invalid:
-    credentials = run(flow, STORAGE, http=http)
+    credentials = run_flow(flow, STORAGE, http=http)
   http = credentials.authorize(http)
   return build('gmail', 'v1', http=http)
 
