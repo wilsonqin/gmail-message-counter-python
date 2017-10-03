@@ -14,3 +14,4 @@ Get your `CLIENT_SECRET_FILE` by creating a new project in the [Google Developer
 Tested on
 
 * Debian 7.8 (wheezy) with Python 2.7.3
+* Mac OS X with Python 2.7.13
